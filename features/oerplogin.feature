@@ -21,4 +21,4 @@ Scenario Outline: Login to OrangeHRM with Multiple parameters
       | admin    | admin    |
       | Admin123 | admin123 |
       | Admin    | admin    |
-      | Adminxyz | admiN123 |
+      | Adminxyz | admiN1223 |
