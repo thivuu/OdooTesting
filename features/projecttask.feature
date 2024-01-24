@@ -2,7 +2,7 @@ Feature: project task
 
   Background: common steps
     Given I launch Chrome browser
-    When I open OrangeHRM homepage
+    When I open OryzaErp homepage
     And I enter the username "admin" and password "admin"
     And I click on the login button
     And I click on Project module
