@@ -13,13 +13,13 @@ def step_impl(context):
     context.driver.implicitly_wait(1)
 
 
-@when('I open OrangeHRM homepage')
+@when('I open OryzaErp homepage')
 def step_impl(context):
-    context.driver.get("https://erp5-test.oryza.vn/web/login")
+    context.driver.get("https://erp3-test.oryza.vn/web/login")
 
 
 @when('I enter the username "{user}" and password "{pwd}"')
-def step_impl(context,user,pwd):
+def step_impl(context, user, pwd):
     context.driver.find_element(By.NAME, "login").send_keys(user)
     context.driver.find_element(By.NAME, "password").send_keys(pwd)
 
@@ -27,6 +27,7 @@ def step_impl(context,user,pwd):
 @when('I click on the login button')
 def step_impl(context):
     context.driver.find_element(By.XPATH, "//button[@type='submit']").click()
+
 
 @then('User must be successfully login to the Dashboard page')
 def step_impl(context):

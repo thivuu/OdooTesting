@@ -1,40 +1,30 @@
+import os
+import shutil
 # This is a sample Python script.
 
 # Press Shift+F10 to execute it or replace it with your code.
 # Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+source_folder = r'C:\Users\Oryza-JSC\Downloads\lfw\lfw'
+target_folder = r'C:\Users\Oryza-JSC\Downloads\lfw\lfw\collect'
 
+# Lấy danh sách tất cả các folder trong thư mục nguồn
+folders = os.listdir(source_folder)
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+# Lấy 500 folder đầu tiên
+selected_folders = folders[:500]
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+# Tạo thư mục đích nếu chưa tồn tại
+os.makedirs(target_folder, exist_ok=True)
 
-    def input_user_name(self):
-        return self.driver.find_element(By.XPATH, "//*[@id='userName-id']")
+# Gộp hình từ các folder đã chọn vào thư mục đích
+for folder in selected_folders:
+    folder_path = os.path.join(source_folder, folder)
+    image_files = os.listdir(folder_path)
+    for image_file in image_files:
+        source_path = os.path.join(folder_path, image_file)
+        target_path = os.path.join(target_folder, image_file)
+        shutil.copy(source_path, target_path)
 
-
-    def input_user_name(self):
-        return self.driver.find_element(By.CSS_SELECTOR, "#userName-id")
-
-
-    def input_user_name(self):
-        return self.driver.find_element(By.NAME, "userName")
-
-
-    def input_user_name(self):
-        return self.driver.find_element(By.CSS_SELECTOR, "#userName-id")
-
-
-    def input_user_name(self):
-        return self.driver.find_element(By.CSS_SELECTOR, "input[id='userName-id']")
-
-
-    def fieldset_outlined_notched(self):
-        return self.driver.find_element(By.CSS_SELECTOR,
-                                        "html > body > div > div:nth-of-type(2) > main > div > div > form > div:nth-of-type(1) > div > div > div > div > fieldset")
+print("Đã gộp hình thành công!")

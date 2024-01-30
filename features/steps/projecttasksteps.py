@@ -34,9 +34,12 @@ def step_impl(context):
 def step_impl(context):
     context.driver.find_element(By.XPATH, "//div[@role='article'][1]").click()
 
+
 @when('I click on the add stage button')
 def step_impl(context):
     context.driver.find_element(By.XPATH, "//button[contains(text(),'Add a stage')]").click()
+
+
 @then(u'I click on create task button')
 def step_impl(context):
     raise NotImplementedError(u'STEP: Then I click on create task button')
